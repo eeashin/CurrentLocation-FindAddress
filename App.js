@@ -16,6 +16,21 @@ export default class App extends React.Component {
       longitudeDelta: 0.0221,
     }    
   }
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        this.setState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          error: null,
+        });
+      },
+      err => {
+        alert("Error to find location")
+      }
+    );
+  }
   
   
   findMyAddress = () =>{
@@ -79,7 +94,6 @@ const styles = StyleSheet.create({
     margin: 18,
     fontSize: 18,
     borderWidth: 1,
-    borderRadius: 10,
     borderColor: '#48BBEC',
     backgroundColor: 'rgba(0,0,0,0)',
   }
