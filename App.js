@@ -3,7 +3,8 @@ import { StyleSheet, View, TextInput, Button, Alert } from 'react-native';
 import { MapView } from 'expo';
 import Geocoder from 'react-native-geocoding';
 
-Geocoder.setApiKey('AIzaSyC17oKKhMLx2hFNDhBWpDsSiTIqleJN_fE'); // use a valid API key
+Geocoder.setApiKey('AIzaSyC17oKKhMLx2hFNDhBWpDsSiTIqleJN_fE'); 
+//required google geocoder Api key, obtained from google
 export default class App extends React.Component {
   constructor(props){
     super(props);
@@ -18,7 +19,7 @@ export default class App extends React.Component {
   
   
   findMyAddress = () =>{
-    Geocoder.setApiKey('AIzaSyC17oKKhMLx2hFNDhBWpDsSiTIqleJN_fE'); // use a valid API key 
+    Geocoder.setApiKey('AIzaSyC17oKKhMLx2hFNDhBWpDsSiTIqleJN_fE'); 
     Geocoder.getFromLocation(this.state.myAddress)
     .then( (responseData) => {
         var location = responseData.results[0].geometry.location;
